@@ -1,37 +1,4 @@
 // Función para encriptar el texto de entrada utilizando un cifrado de sustitución
-function encriptarTexto() {
-  var textoEntrada = document.getElementById("texto-entrada").value;
-
-  // Encriptar utilizando un cifrado de sustitución (implementación de ejemplo)
-  var textoEncriptado = sustitucionEncriptar(textoEntrada);
-
-  document.getElementById("texto-salida").value = textoEncriptado;
-}
-
-// Función para desencriptar el texto encriptado utilizando un cifrado de sustitución
-function desencriptarTexto() {
-  var textoEncriptado = document.getElementById("texto-salida").value;
-
-  // Desencriptar utilizando un cifrado de sustitución (implementación de ejemplo)
-  var textoDesencriptado = sustitucionDesencriptar(textoEncriptado);
-
-  document.getElementById("texto-salida").value = textoDesencriptado;
-}
-
-// Función para copiar el texto en la caja de salida al portapapeles
-function copiarTexto() {
-  var textoSalida = document.getElementById("texto-salida");
-  textoSalida.select();
-  document.execCommand("copy");
-  alert("¡Texto copiado al portapapeles!");
-}
-
-// Event listeners para los botones
-document.getElementById("boton-encriptar").addEventListener("click", encriptarTexto);
-document.getElementById("boton-desencriptar").addEventListener("click", desencriptarTexto);
-document.getElementById("boton-copiar").addEventListener("click", copiarTexto);
-
-// Función de ejemplo para encriptar mediante un cifrado de sustitución
 function sustitucionEncriptar(texto) {
   var sustituciones = {
     "a": "ABCD",
@@ -53,7 +20,7 @@ function sustitucionEncriptar(texto) {
   return textoEncriptado;
 }
 
-// Función de ejemplo para desencriptar mediante un cifrado de sustitución
+// Función para desencriptar el texto encriptado utilizando un cifrado de sustitución
 function sustitucionDesencriptar(textoEncriptado) {
   var sustituciones = {
     "abcd": "a",
@@ -74,3 +41,30 @@ function sustitucionDesencriptar(textoEncriptado) {
   }
   return textoDesencriptado;
 }
+
+// Función para encriptar el texto al hacer clic en el botón "Encriptar"
+function encriptarTexto() {
+  var textoEntrada = document.getElementById("texto-entrada").value;
+  var textoEncriptado = sustitucionEncriptar(textoEntrada);
+  document.getElementById("texto-salida").value = textoEncriptado;
+}
+
+// Función para desencriptar el texto al hacer clic en el botón "Desencriptar"
+function desencriptarTexto() {
+  var textoEncriptado = document.getElementById("texto-salida").value;
+  var textoDesencriptado = sustitucionDesencriptar(textoEncriptado);
+  document.getElementById("texto-salida").value = textoDesencriptado;
+}
+
+// Función para copiar el texto en la caja de salida al portapapeles
+function copiarTexto() {
+  var textoSalida = document.getElementById("texto-salida");
+  textoSalida.select();
+  document.execCommand("copy");
+  alert("¡Texto copiado al portapapeles!");
+}
+
+// Event listeners para los botones
+document.getElementById("boton-encriptar").addEventListener("click", encriptarTexto);
+document.getElementById("boton-desencriptar").addEventListener("click", desencriptarTexto);
+document.getElementById("boton-copiar").addEventListener("click", copiarTexto);
